@@ -64,6 +64,7 @@ CONFIG_x86 := --arch=amd64 \
 	--enable-cuvid \
 	--enable-nvdec \
 	--enable-nvenc \
+	--enable-libvmaf \
 
 CONFIG_ARM_COMMON := --toolchain=hardened \
 	--enable-cross-compile \
