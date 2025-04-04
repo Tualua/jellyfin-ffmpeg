@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - jellyfin
+      - jellyfin-vmaf
       - jellyfin-7.0
     paths-ignore:
       - '**/*.md'

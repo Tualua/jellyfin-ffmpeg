@@ -285,6 +285,23 @@ prepare_extra_common() {
 
 # Prepare extra headers, libs and drivers for x86_64-linux-gnu
 prepare_extra_amd64() {
+    # libvmaf
+    pushd ${SOURCE_DIR}
+    mkdir libvmaf
+    pushd libvmaf
+    libvmaf_ver="3.0.0"
+    libvmaf_link=https://github.com/Netflix/vmaf/archive/refs/tags/v${libvmaf_ver}.tar.gz
+    wget ${libvmaf_link} -O libvmaf.tar.gz
+    tar xaf libvmaf.tar.gz
+    pushd vmaf-${libvmaf_ver}/libvmaf
+    meson setup build --buildtype release -Denable_avx512=true
+    ninja -vC build
+    ninja -vC build install
+
+    popd
+    popd
+    popd
+
     # FFNVCODEC
     pushd ${SOURCE_DIR}
     git clone -b n12.0.16.1 --depth=1 https://github.com/FFmpeg/nv-codec-headers.git
