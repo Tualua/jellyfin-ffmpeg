@@ -296,6 +296,7 @@ prepare_extra_amd64() {
     pushd vmaf-${libvmaf_ver}/libvmaf
     meson setup build \
         --prefix=${TARGET_DIR} \
+        --libdir=lib \
         --buildtype release \
         -Denable_avx512=true
     ninja -vC build install
