@@ -5,6 +5,6 @@ FF_LDFLAGS=""
 GIT_BRANCH="jellyfin"
 LICENSE_FILE="COPYING.GPLv3"
 
-[[ $TARGET == linux* ]] && FF_CONFIGURE+=" --disable-libxcb --disable-xlib --enable-lto=auto" || true
+[[ $TARGET == linux* ]] && FF_CONFIGURE+=" --disable-libxcb --disable-xlib --enable-lto=auto --enable-libvmaf" || true
 [[ $TARGET == win* ]] && FF_CONFIGURE+=" --enable-lto=auto" || true
 [[ $TARGET == mac* ]] && FF_CONFIGURE+=" --enable-lto=thin" || true
