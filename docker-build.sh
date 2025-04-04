@@ -302,6 +302,8 @@ prepare_extra_amd64() {
     ninja -vC build install
     cp -a ${TARGET_DIR}/lib/libvmaf.so* ${SOURCE_DIR}/libvmaf
     echo "libvmaf/libvmaf.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "libvmaf/build/tools/vmaf usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
+    echo "libvmaf/build/src/vmaf*.json usr/share/vmaf" >> ${DPKG_INSTALL_LIST}
     popd
     popd
     popd
