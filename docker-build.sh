@@ -211,6 +211,7 @@ prepare_extra_common() {
     pushd build
     cmake \
         ${CMAKE_TOOLCHAIN_OPT} \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
         -DCMAKE_INSTALL_PREFIX=${TARGET_DIR} \
         -DCMAKE_BUILD_TYPE=Release \
         -DBUILD_SHARED_LIBS=ON \
