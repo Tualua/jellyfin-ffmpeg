@@ -295,8 +295,8 @@ prepare_extra_amd64() {
     tar xaf libvmaf.tar.gz
     pushd vmaf-${libvmaf_ver}/libvmaf
     meson setup build \
-        --prefix=${TARGET_DIR}
-        --buildtype release 
+        --prefix=${TARGET_DIR} \
+        --buildtype release \
         -Denable_avx512=true
     ninja -vC build install
     cp -a ${TARGET_DIR}/lib/libvmaf.so* ${SOURCE_DIR}/libvmaf
