@@ -294,12 +294,13 @@ prepare_extra_amd64() {
     wget ${libvmaf_link} -O libvmaf.tar.gz
     tar xaf libvmaf.tar.gz
     pushd vmaf-${libvmaf_ver}/libvmaf
-    meson setup build --buildtype release -Denable_avx512=true
-    ninja -vC build
+    meson setup build \
+        --prefix=${TARGET_DIR}
+        --buildtype release 
+        -Denable_avx512=true
     ninja -vC build install
-    echo "/usr/local/lib/x86_64-linux-gnu/libvmaf.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
-    echo "/usr/local/lib/x86_64-linux-gnu/libvmaf.a usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
-    echo "/usr/local/bin/vmaf usr/bin" >> ${DPKG_INSTALL_LIST}
+    cp -a ${TARGET_DIR}/lib/libvmaf.so* ${SOURCE_DIR}/libvmaf
+    echo "libvmaf/libvmaf.so* usr/lib/jellyfin-ffmpeg/lib" >> ${DPKG_INSTALL_LIST}
     popd
     popd
     popd
