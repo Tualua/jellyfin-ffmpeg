@@ -51,12 +51,12 @@ jobs:
   #   with:
   #     release: false
 
-  # build_portable_linux:
-  #   uses: ./.github/workflows/_meta_portable.yaml
-  #   with:
-  #     os: 'linux'
-  #     architectures: '["amd64", "arm64"]'
-  #     release: false
+  build_portable_linux:
+    uses: ./.github/workflows/_meta_portable.yaml
+    with:
+      os: 'linux'
+      architectures: '["amd64", "arm64"]'
+      release: false
 
   # build_portable_mac:
   #   uses: ./.github/workflows/_meta_mac_portable.yaml
